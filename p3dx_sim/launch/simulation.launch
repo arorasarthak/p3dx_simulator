@@ -1,8 +1,9 @@
 <launch>
+    <arg name="node_start_delay" default="10.0" />  
 
     <arg name="scene" default="$(find p3dx_sim)/scene/lab2.ttt"/>
     <arg name="COPPELIA_PATH" default="$HOME/coppelia"/>
-    <include file="$(find p3dx_description)/launch/robot.xml" />
     <node name="sim_node" pkg="p3dx_sim" type="sim_node.py" args="$(arg scene) $(arg COPPELIA_PATH)" />
+    <node name="launch_robot" pkg="p3dx_sim" type="launch_robot.py" output="screen" />
 
 </launch>
